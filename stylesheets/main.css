@@ -1,0 +1,28 @@
+body {
+	background-color: #9192A0;
+	margin: 0 !important;
+	padding: 0 !important;
+	position:absolute; top:0; bottom:0; right:0; left:0;
+}
+
+div{
+	display: block;
+}
+
+html{
+	color: #fff;
+	font:24px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+	height: 100%;
+	text-align: center;
+}
+
+p {
+	margin: 0;
+}
+.container {
+	background-color: #37373A;
+	margin: 0 auto;
+	max-width: 750px;
+	height:100%;
+	padding: 30px 10px;
+}
