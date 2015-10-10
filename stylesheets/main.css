@@ -11,13 +11,38 @@ div{
 
 html{
 	color: #fff;
-	font:24px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font:18px/1.4 "Helvetica Neue",Helvetica,Arial,sans-serif;
 	height: 100%;
 	text-align: center;
 }
 
+label ~ input[type=checkbox], label ~ input[type=radio] {
+	width: 173px;
+}
+
+input[type=text] {
+	height: 17px;
+}
+
+input[type=date] {
+	height: 19px;
+}
+
+label {
+	display: inline-block;
+	margin-right: 10px;
+	text-align: right;
+	width: 200px;
+}
+
+div > label, div > input {
+	margin-bottom: 5px;
+}
+
 p {
 	margin: 0;
+	word-wrap: break-word;
+	margin-bottom: 10px;
 }
 .container {
 	background-color: #37373A;
@@ -25,4 +50,13 @@ p {
 	max-width: 750px;
 	height:100%;
 	padding: 30px 10px;
+}
+
+.set-width {
+	width: 168px;
+}
+
+#map {
+	height: 70%;
+	position: relative;
 }

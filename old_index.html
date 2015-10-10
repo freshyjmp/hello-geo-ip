@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% autoescape true %}
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <p>This is but a humble web app.</p>
+      <p>This is your IP: {{ user_ip }}</p>
+      <p>ISP: <span id="isp">{{ isp }}</span></p>
+      <p>Latitude: <span id="latitude">{{ lat }}</span></p>
+      <p>Longitude: <span id="longitude">{{ lon }}</span></p>
+      <div id="map"></div>
+    </div>
+    <script src="js/base.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAD_G0jn_JVWD0isbNXSxSfmcRUxnrJHQ&callback=initMap"></script>
+  </body>
+</html>
+{% endautoescape %}

@@ -5,8 +5,42 @@
   </head>
   <body>
     <div class="container">
-      <p>This is but a humble web app.</p>
-      <p>This is your IP: {{ user_ip }}</p>
+      <h2>YourROI</h2>
+      <p>This web application will take information about your current and previous compensation and calculate the rate at which your salary has increased (or decreased) during your career.</p>
+      <form action ="/enterjob" method="post">
+        <div>
+          <label for="text">Job Title</label>
+          <input type="text" name="job_title" placeholder="Job Title" required>
+        </div>
+        <div>
+          <label for="text">Company</label>
+          <input type="text" name="company" placeholder="Company" required>
+        </div>
+        <div>
+          <label for="text">Salary (or hourly rate)</label>
+          <input type="number" name="salary" step=.01 value=0.0 required>
+        </div>
+        <div>
+          <label for="date">Start Date</label>
+          <input type="date" name="start_date" class="set-width" required>
+        </div>
+        <div>
+          <label for="current">Current position?</label>
+          <input type="checkbox" name="current">
+        </div>
+        <div>
+          <label for="exempt">Salary</label>
+          <input type="radio" name="exempt" value="Salary" required><br>
+          <label for="exempt">Hourly</label>
+          <input type="radio" name="exempt" value="Hourly" >
+        </div>
+        <div><input type="submit" value="Submit"></div>
+      </form>
+    <ul>
+    {% for row in list %}
+    <li class="{{ loop.cycle('odd', 'even') }}"> {{ row }} </li>
+    {% endfor %}
+    </ul>
     </div>
   </body>
 </html>
