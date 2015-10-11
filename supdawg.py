@@ -115,8 +115,6 @@ class UpdatePage(webapp2.RequestHandler):
             isHourly = ""
             if job.current == True:
                 isCurrent = "checked"
-            else:
-                isCurrent = "derp"
 
             if job.exempt == True:
                 isSalaried = "checked"
