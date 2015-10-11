@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% autoescape true %}
   <head>
+    <title>Such A Page, Wow!</title>
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" />
   </head>
@@ -10,34 +11,36 @@
       <p>This web application will take information about your current and previous compensation and calculate the rate at which your salary has increased (or decreased) during your career.</p>
       <form action ="/createjob" method="post">
         <div>
-          <label for="text">Job Title</label>
-          <input type="text" name="job_title" placeholder="Job Title" required>
+          <label for="job_title">Job Title</label>
+          <input type="text" id="job_title" name="job_title" placeholder="Job Title" required>
         </div>
         <div>
-          <label for="text">Company</label>
-          <input type="text" name="company" placeholder="Company" required>
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company" required>
         </div>
         <div>
-          <label for="text">Salary (or hourly rate)</label>
-          <input type="number" name="salary" step=.01 value=0.0 required>
+          <label for="salary">Salary (or hourly rate)</label>
+          <input type="number" id="salary" name="salary" step="0.01" value=0.0 required>
         </div>
         <div>
-          <label for="date">Start Date</label>
-          <input type="date" name="start_date" class="set-width" required>
+          <label for="start_date">Start Date</label>
+          <input type="date" id="start_date" name="start_date" class="set-width" required>
         </div>
         <div>
           <label for="current">Current position?</label>
-          <input type="checkbox" name="current">
+          <input type="checkbox" id="current" name="current">
         </div>
         <div>
-          <label for="exempt">Salary</label>
-          <input type="radio" name="exempt" value="Salary" required><br>
-          <label for="exempt">Hourly</label>
-          <input type="radio" name="exempt" value="Hourly" >
+          <label for="exempt_s">Salary</label>
+          <input type="radio" id="exempt_s" name="exempt" value="Salary" required><br>
+          <label for="exempt_h">Hourly</label>
+          <input type="radio" id="exempt_h" name="exempt" value="Hourly" >
         </div>
         <div><input type="submit" value="Submit"></div>
       </form>
     <table class="flat-table">
+    <thead>
+     <tr>
       <th>Job Title</th>
       <th>Company</th>
       <th>Salary</th>
@@ -45,6 +48,8 @@
       <th>Current?</th>
       <th>Exempt?</th>
       <th>Edit</th>
+     </tr>
+    </thead>
     {% for dict_item in jlist %}
       <tr class="{{ loop.cycle('odd', 'even') }}">
         <td>{{ dict_item['job_title'] }}</td>

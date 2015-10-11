@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% autoescape true %}
   <head>
+    <title>Such Editing!</title>
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" />
   </head>
@@ -11,30 +12,30 @@
       <p>Edit the existing entry and then hit submit</p>
       <form action ="/updatejob" method="post">
         <div>
-          <label for="text">Job Title</label>
-          <input type="text" name="job_title" placeholder="Job Title" value="{{ job_title }}" required>
+          <label for="job_title">Job Title</label>
+          <input type="text" id="job_title" name="job_title" placeholder="Job Title" value="{{ job_title }}" required>
         </div>
         <div>
-          <label for="text">Company</label>
-          <input type="text" name="company" placeholder="Company" value="{{ company }}" required>
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company" value="{{ company }}" required>
         </div>
         <div>
-          <label for="text">Salary (or hourly rate)</label>
-          <input type="number" name="salary" step=.01 value={{ salary }} required>
+          <label for="salary">Salary (or hourly rate)</label>
+          <input type="number" id="salary" name="salary" step=.01 value={{ salary }} required>
         </div>
         <div>
-          <label for="date">Start Date</label>
-          <input type="date" name="start_date" class="set-width" value="{{ start_date }}"required>
+          <label for="start_date">Start Date</label>
+          <input type="date" id="start_date" name="start_date" class="set-width" value="{{ start_date }}"required>
         </div>
         <div>
           <label for="current">Current position?</label>
-          <input type="checkbox" name="current" {{ current }} >
+          <input type="checkbox" id="current" name="current" {{ current }} >
         </div>
         <div>
-          <label for="exempt">Salary</label>
-          <input type="radio" name="exempt" value="Salary" {{ exempt_s }} required><br>
-          <label for="exempt">Hourly</label>
-          <input type="radio" name="exempt" value="Hourly" {{ exempt_h }} >
+          <label for="exempt_s">Salary</label>
+          <input type="radio" id="exempt_s" name="exempt" value="Salary" {{ exempt_s }} required><br>
+          <label for="exempt_h">Hourly</label>
+          <input type="radio" id="exempt_h" name="exempt" value="Hourly" {{ exempt_h }} >
         </div>
         <div>
           <input type="hidden" name="key" value="{{ key }}">

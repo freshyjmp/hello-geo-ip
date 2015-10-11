@@ -99,6 +99,7 @@ class CreatePage(webapp2.RequestHandler):
             salary = float(self.request.get('salary')),
             exempt = ex )
         job.put()
+        self.redirect('/')
 
 class UpdatePage(webapp2.RequestHandler):
     def get(self):
@@ -158,6 +159,7 @@ class UpdatePage(webapp2.RequestHandler):
             salary = float(self.request.get('salary')),
             exempt = ex )
         job.put()
+        self.redirect('/')
 
 
 routes = [
