@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% autoescape true %}
+  <head>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>YourROI</h2>
+      <h3>Edit an Entry</h3>
+      <p>Edit the existing entry and then hit submit</p>
+      <form action ="/updatejob" method="post">
+        <div>
+          <label for="text">Job Title</label>
+          <input type="text" name="job_title" placeholder="Job Title" value="{{ job_title }}" required>
+        </div>
+        <div>
+          <label for="text">Company</label>
+          <input type="text" name="company" placeholder="Company" value="{{ company }}" required>
+        </div>
+        <div>
+          <label for="text">Salary (or hourly rate)</label>
+          <input type="number" name="salary" step=.01 value={{ salary }} required>
+        </div>
+        <div>
+          <label for="date">Start Date</label>
+          <input type="date" name="start_date" class="set-width" value="{{ start_date }}"required>
+        </div>
+        <div>
+          <label for="current">Current position?</label>
+          <input type="checkbox" name="current" {{ current }} >
+        </div>
+        <div>
+          <label for="exempt">Salary</label>
+          <input type="radio" name="exempt" value="Salary" {{ exempt_s }} required><br>
+          <label for="exempt">Hourly</label>
+          <input type="radio" name="exempt" value="Hourly" {{ exempt_h }} >
+        </div>
+        <div>
+          <input type="hidden" name="key" value="{{ key }}">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+{% endautoescape %}

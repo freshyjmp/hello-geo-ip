@@ -2,12 +2,13 @@
 {% autoescape true %}
   <head>
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" />
   </head>
   <body>
     <div class="container">
       <h2>YourROI</h2>
       <p>This web application will take information about your current and previous compensation and calculate the rate at which your salary has increased (or decreased) during your career.</p>
-      <form action ="/enterjob" method="post">
+      <form action ="/createjob" method="post">
         <div>
           <label for="text">Job Title</label>
           <input type="text" name="job_title" placeholder="Job Title" required>
@@ -36,11 +37,26 @@
         </div>
         <div><input type="submit" value="Submit"></div>
       </form>
-    <ul>
-    {% for row in list %}
-    <li class="{{ loop.cycle('odd', 'even') }}"> {{ row }} </li>
+    <table class="flat-table">
+      <th>Job Title</th>
+      <th>Company</th>
+      <th>Salary</th>
+      <th>Start Date</th>
+      <th>Current?</th>
+      <th>Exempt?</th>
+      <th>Edit</th>
+    {% for dict_item in jlist %}
+      <tr class="{{ loop.cycle('odd', 'even') }}">
+        <td>{{ dict_item['job_title'] }}</td>
+        <td>{{ dict_item['company'] }}</td>
+        <td>{{ dict_item['salary'] }}</td>
+        <td>{{ dict_item['start_date'] }}</td>
+        <td>{{ dict_item['current'] }}</td>
+        <td>{{ dict_item['exempt'] }}</td>
+        <td><a href="/updatejob?key={{ dict_item['key'] }}"><i class="fa fa-pencil fa-2x"></i></a></td>
+      </tr>
     {% endfor %}
-    </ul>
+    </table>
     </div>
   </body>
 </html>
